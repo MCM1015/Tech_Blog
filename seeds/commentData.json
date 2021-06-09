@@ -1,0 +1,32 @@
+[
+{
+    "comment": "xyz",
+    "user_id": 1,
+    "post_id": 1
+},
+{
+    "comment": "abc",
+    "user_id": 2,
+    "post_id": 1
+},
+{
+    "comment": "qrs",
+    "user_id": 3,
+    "post_id": 1
+},
+{
+    "comment": "xyz",
+    "user_id": 1,
+    "post_id": 2
+},
+{
+    "comment": "abc",
+    "user_id": 2,
+    "post_id": 2
+},
+{
+    "comment": "qrs",
+    "user_id": 3,
+    "post_id": 3
+}
+]

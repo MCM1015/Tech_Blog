@@ -1,0 +1,17 @@
+[
+    {
+        "title": "Javascript",
+        "contents": "Let's discuss our love and distain for js",
+        "user_id": 1
+    },
+    {
+        "title": "MySQL",
+        "contents": "Let's talk databases",
+        "user_id": 2
+    },
+    {
+        "title": "CSS",
+        "contents": "Styling, I Love Styling",
+        "user_id": 3
+    }
+]
