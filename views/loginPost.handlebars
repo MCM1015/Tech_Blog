@@ -1,0 +1,94 @@
+{{!-- post with all comments, if logged in can edit, delete, update comment otherwise can only see comments --}}
+<div class="card post">
+    <div class="card-post-header bg-gradient">
+        <a class="post-header" href="/post/{{posts.id}}">{{posts.title}}</a>
+        <p class="display-flex justify-content-end post-body fst-italic">Posted by: {{posts.user.name}} | on {{format_date
+            posts.date_created}}
+        </p>
+    </div>
+    <div class="card-body display-flex justify-content-space-around">
+        <p class="card-text text-dark">{{contents}}</p>
+    </div>
+    <div class="comment-section">
+        <h3>Comments:</h3>
+        {{#each posts.comments as |comment|}}
+        <div class="modal fade" id="modalLoginForm{{comment.id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header text-center">
+                        <h4 class="modal-title w-100 font-weight-bold">Edit Post</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body mx-3">
+                        <form class="new-post-form">
+                            <div class="form-group">
+                                <label for="title">Comment:</label>
+                                <textarea class="form-input" id="comment" name="comment">{{comment.comment}}</textarea>
+                            </div>
+                            <div class="form-group">
+                                <p class="form-input display-none" type="text" id="user-id" name="user-id">{{comment.user_id}}
+                                </p>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer d-flex justify-content-center">
+                        <button class="btn btn-primary" id="update">Update</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="comment-card">
+            <p class="card-text text-dark fw-bold fs-5 text form-input"> {{comment.comment}} </p>
+            <p class="fs-6 text fst-italic"> -Posted by: {{comment.user.name}} | on {{format_date
+                comment.date_created}}</p>
+            <div>
+                <button class="delete btn btn-light btn-sm" {{post.id}}><i class='far fa-trash-alt'> Delete</i></button>
+                    <a href="" data-toggle="modal" data-target="#modalLoginForm{{comment.id}}">
+                        <button class="edit btn btn-light btn-sm"><i class='far fa-edit'></i> Edit</button>
+                    </a>
+            </div>
+        </div>
+        {{/each}}
+        <div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header text-center">
+                        <h4 class="modal-title w-100 font-weight-bold">Add Comment</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body mx-3">
+                        <form class="new-post-form">
+                            <div class="form-group">
+                                <label for="title">Comment:</label>
+                                <textarea class="form-input" id="comment" name="comment"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <p class="form-input" type="text" id="post-id" name="post-id">{{posts.id}}
+                                </p>
+                            </div>
+                            <div class="form-group">
+                                <p class="form-input" type="text" id="user-id" name="user-id">{{user.id}}
+                                </p>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer d-flex justify-content-center">
+                        <button class="btn btn-primary" id="submit">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mt-3 d-flex justify-content-center">
+            <a href="" data-toggle="modal" data-target="#modalLoginForm">
+            <button class="btn btn-dark" id="comment">Add Comment</button>
+            </a>
+        </div>
+    </div>
+
+    <script src="./js/comment.js"></script>

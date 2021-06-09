@@ -1,8 +1,22 @@
-<div>
-    View page for one post
-</div>
-
-{{!-- <div>
-   if logged in, add, edit delete comment
-   if not logged in view comment only
-</div> --}}
+{{!-- post with all comments, if logged in can edit, delete, update comment otherwise can only see comments --}}
+    <div class="card post">
+        <div class="card-post-header bg-gradient">
+            <a class="post-header" href="/post/{{posts.id}}">{{posts.title}}</a>
+            <p class="display-flex justify-content-end post-body fst-italic">Posted by: {{posts.user.name}} | on {{format_date
+                posts.date_created}}
+            </p>
+        </div>
+        <div class="card-body display-flex justify-content-space-around">
+            <p class="card-text text-dark">{{posts.contents}}</p>
+        </div>
+        <div class="comment-section">
+            <h3>Comments:</h3>
+            {{#each posts.comments as |comment|}}
+            <div class="comment-card">
+                <p class="card-text text-dark fw-bold fs-5 text"> {{comment.comment}} </p>
+                <p class="fs-6 text fst-italic"> -Posted by: {{comment.user_id}} | on {{format_date
+                    comment.date_created}}</p>
+            </div>
+            {{/each}}
+        </div>
+    </div>

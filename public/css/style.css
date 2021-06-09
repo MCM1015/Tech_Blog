@@ -22,19 +22,38 @@ body {
 .post-body {
 font-size: 15px;
 color: lightsalmon;
+margin-right: 2px;
 }
 
 .post-header {
     font-size: 25px;
+    margin-left: 2px;
 }
 
 .card-post-header {
     background-color:  rgb(4, 8, 68);
     border-width: 2px;
+    padding-left: 2px;
+    padding-right: 2px;
 }
 
 .post {
     background: lightsalmon;
     border-radius: 5px;
     border-width: 2px;
+}
+
+.comment-card {
+    border: rgb(4, 8, 68) dashed 1px;
+    margin: 2px;
+    padding: 5px;
+}
+
+.comment-section {
+    margin: 10px;
+    padding: 5px;
+}
+
+.display-none {
+    display: none;
 }
