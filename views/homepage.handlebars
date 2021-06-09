@@ -1,3 +1,12 @@
-<div>
-    Hello - Welcome to the tech blog
+
+{{#each posts as |post|}}
+<div class="card post">
+  <div class="card-post-header bg-gradient">
+    <a class="post-header" href="/post/{{post.id}}">{{post.title}}</a>
+    <p class="display-flex justify-content-end post-body">Posted by: {{post.user.name}} | on {{format_date post.date_created}}</p>
+  </div>
+  <div class="card-body display-flex justify-content-space-around">
+    <p class="card-text text-dark">{{post.contents}}</p>
+  </div>
 </div>
+{{/each}}
