@@ -3,7 +3,7 @@
 {{#each posts as |post|}}
 <div class="card post">
   <div class="card-post-header bg-gradient">
-    <a class="post-header" href="/login/post/{{post.id}}">{{post.title}}</a>
+    <a class="post-header" href="/post/{{post.id}}">{{post.title}}</a>
     <p class="display-flex justify-content-end post-body">Posted by: {{post.user.name}} | on {{format_date post.date_created}}</p>
   </div>
   <div class="card-body display-flex justify-content-space-around">
@@ -15,7 +15,7 @@
 {{#each posts as |post|}}
 <div class="card post">
   <div class="card-post-header bg-gradient">
-    <a class="post-header" href="/post/{{post.id}}">{{post.title}}</a>
+    <a class="post-header" href="/nologin/post/{{post.id}}">{{post.title}}</a>
     <p class="display-flex justify-content-end post-body">Posted by: {{post.user.name}} | on {{format_date post.date_created}}</p>
   </div>
   <div class="card-body display-flex justify-content-space-around">

@@ -2,6 +2,7 @@
 <div class="card post">
     <div class="card-post-header bg-gradient">
         <a class="post-header" href="/post/{{posts.id}}">{{posts.title}}</a>
+        <p class="display-none" id="postid">{{posts.id}}</p>
         <p class="display-flex justify-content-end post-body fst-italic">Posted by: {{posts.user.name}} | on {{format_date
             posts.date_created}}
         </p>
@@ -26,16 +27,16 @@
                         <form class="new-post-form">
                             <div class="form-group">
                                 <label for="title">Comment:</label>
-                                <textarea class="form-input" id="comment" name="comment">{{comment.comment}}</textarea>
+                                <textarea class="form-input" id="comment{{comment.id}}" name="comment">{{comment.comment}}</textarea>
                             </div>
                             <div class="form-group">
-                                <p class="form-input display-none" type="text" id="user-id" name="user-id">{{comment.user_id}}
+                                <p class="form-input display-none" type="text" id="comment-id" name="comment-id">{{comment.id}}
                                 </p>
                             </div>
                         </form>
                     </div>
                     <div class="modal-footer d-flex justify-content-center">
-                        <button class="btn btn-primary" id="update">Update</button>
+                        <button class="btn btn-primary update" data-id="{{comment.id}}">Update</button>
                     </div>
                 </div>
             </div>
@@ -45,9 +46,9 @@
             <p class="fs-6 text fst-italic"> -Posted by: {{comment.user.name}} | on {{format_date
                 comment.date_created}}</p>
             <div>
-                <button class="delete btn btn-light btn-sm" {{post.id}}><i class='far fa-trash-alt'> Delete</i></button>
+                <button class="delete btn btn-light btn-sm" data-id="{{comment.id}}"><i class='far fa-trash-alt delete'> Delete</i></button>
                     <a href="" data-toggle="modal" data-target="#modalLoginForm{{comment.id}}">
-                        <button class="edit btn btn-light btn-sm"><i class='far fa-edit'></i> Edit</button>
+                        <button data-id="{{comment.id}}" class="edit btn btn-light btn-sm"><i class='far fa-edit'></i> Edit</button>
                     </a>
             </div>
         </div>
@@ -66,14 +67,14 @@
                         <form class="new-post-form">
                             <div class="form-group">
                                 <label for="title">Comment:</label>
-                                <textarea class="form-input" id="comment" name="comment"></textarea>
+                                <textarea class="form-input" id="newcomment" name="comment"></textarea>
                             </div>
                             <div class="form-group">
-                                <p class="form-input" type="text" id="post-id" name="post-id">{{posts.id}}
+                                <p class="form-input display-none" type="text" id="post-id" name="post-id">{{posts.id}}
                                 </p>
                             </div>
                             <div class="form-group">
-                                <p class="form-input" type="text" id="user-id" name="user-id">{{user.id}}
+                                <p class="form-input display-none" type="text" id="user-id" name="user-id">{{user.id}}
                                 </p>
                             </div>
                         </form>
@@ -90,5 +91,4 @@
             </a>
         </div>
     </div>
-
-    <script src="./js/comment.js"></script>
+    <script src="../js/comment.js"></script>

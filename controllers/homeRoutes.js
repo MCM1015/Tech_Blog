@@ -38,7 +38,7 @@ router.get('/', async (req, res) => {
 });
 
 //Get Post when logged in
-router.get('/login/post/:id', async (req, res) => {
+router.get('/post/:id', async (req, res) => {
     
     try {
         const postData = await Post.findByPk(req.params.id, {
@@ -76,7 +76,7 @@ router.get('/login/post/:id', async (req, res) => {
 });
 
 //Get Post when not logged in
-router.get('/post/:id', async (req, res) => {
+router.get('/nologin/post/:id', async (req, res) => {
     
     try {
         const postData = await Post.findByPk(req.params.id, {

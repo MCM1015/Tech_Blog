@@ -1,7 +1,7 @@
 {{!-- post with all comments, if logged in can edit, delete, update comment otherwise can only see comments --}}
     <div class="card post">
         <div class="card-post-header bg-gradient">
-            <a class="post-header" href="/post/{{posts.id}}">{{posts.title}}</a>
+            <a class="post-header" href="/nologin/post/{{posts.id}}">{{posts.title}}</a>
             <p class="display-flex justify-content-end post-body fst-italic">Posted by: {{posts.user.name}} | on {{format_date
                 posts.date_created}}
             </p>
