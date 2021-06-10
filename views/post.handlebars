@@ -14,7 +14,7 @@
             {{#each posts.comments as |comment|}}
             <div class="comment-card">
                 <p class="card-text text-dark fw-bold fs-5 text"> {{comment.comment}} </p>
-                <p class="fs-6 text fst-italic"> -Posted by: {{comment.user_id}} | on {{format_date
+                <p class="fs-6 text fst-italic"> -Posted by: {{comment.user.name}} | on {{format_date
                     comment.date_created}}</p>
             </div>
             {{/each}}
